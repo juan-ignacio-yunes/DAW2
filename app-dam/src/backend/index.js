@@ -101,6 +101,65 @@ app.get('/dispositivos', function (req, res) {
     });
 })
 
+app.get('/mediciones/:id',function(req,res){
+    const id = req.params.id;
+    console.log("se hizo GET a la api de mediciones para el dispositivo ",id);
+    console.log(req.params);
+    pool.query('SELECT * FROM Mediciones WHERE dispositivoId = ?', [id], function(err, result, fields) {
+        if (err) {
+            res.send(err).status(400);
+            return;
+        }
+        res.send(result);
+    });
+});
+
+
+app.post('/mediciones/:id', function (req, res) {
+    console.log("se hizo POST a la api de mediciones para dispositivo ",id);
+    //pool.query("SET time_zone = '-03:00'");
+    const sqlQuery = 'INSERT INTO Mediciones (fecha, valor, dispositivoId) VALUES (?, ?, ?)';
+    const values = [req.body.fecha, req.body.valor, req.body.dispositivoId];
+
+    pool.query(sqlQuery, values, function (err, result, fields) {
+        if (err) {
+            console.error(err);
+            res.status(400).send("Error al agregar medicion");
+            return;
+        }
+        res.send(result);
+    });
+});
+
+
+app.get('/logs/:id',function(req,res){
+    const id = req.params.id;
+    console.log("se hizo GET a la api de logs para el dispositivo ",id);
+    console.log(req.params);
+    pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId = ?', [id], function(err, result, fields) {
+        if (err) {
+            res.send(err).status(400);
+            return;
+        }
+        res.send(result);
+    });
+});
+
+app.post('/logs/:id', function (req, res) {
+    console.log("se hizo POST a la api de logs para el dispositivo ",id)
+    //pool.query("SET time_zone = '-03:00'");
+    const sqlQuery = 'INSERT INTO Log_Riegos (apertura, fecha, electrovalvulaId) VALUES (?, ?, ?)';
+    const values = [req.body.apertura, req.body.fecha, req.body.electrovalvulaId];
+
+    pool.query(sqlQuery, values, function (err, result, fields) {
+        if (err) {
+            console.error(err);
+            res.status(400).send("Error al agregar log");
+            return;
+        }
+        res.send(result);
+    });
+});
 
 app.get('/prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})
