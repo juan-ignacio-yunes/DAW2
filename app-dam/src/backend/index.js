@@ -91,6 +91,17 @@ app.post('/login', (req, res) => {
     }
 })
 
+app.get('/dispositivos', function (req, res) {
+    pool.query('Select * from Dispositivos', function(err, result, fields) {
+        if (err) {
+            res.send(err).status(400);
+            return;
+        }
+        res.send(result);
+    });
+})
+
+
 app.get('/prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})
 })
