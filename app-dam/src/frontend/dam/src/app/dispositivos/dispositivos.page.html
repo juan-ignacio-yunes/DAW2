@@ -1,11 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>dispositivos</ion-title>
+    <ion-title>Dispositivos</ion-title>
   </ion-toolbar>
-  <button (click)="subscribe()">Sub</button>
+  <!--button (click)="subscribe()">Sub</button>
   <br>
   <button (click)="unsubscribe()">Unsub</button>
-  <br>
+  <br-->
   <ion-button (click)="requestPrueba()">Request prueba</ion-button>
 </ion-header>
 
@@ -15,4 +15,8 @@
       <ion-title size="large">dispositivos</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div *ngFor="let elemento of listado" appColorear>
+    elemento //[dispositivo]="elemento" (click)="handleItemClick(elemento)">
+ </div>
 </ion-content>

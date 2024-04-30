@@ -12,12 +12,13 @@ export class DispositivosPage implements OnInit, OnDestroy {
 
   observable$: Observable<any>
   // subscription: Subscription
+  listado: any[] = [];
 
   constructor(private _dispositivoService: DispositivoService,
     private _actRouter: ActivatedRoute) {
     this.observable$ = interval(1000)
 
-    const valuePlusTen$ = this.observable$.pipe(map((val) => val+10))
+    //const valuePlusTen$ = this.observable$.pipe(map((val) => val+10))
 
     // this.subscription = valuePlusTen$.subscribe((value) => {
     //   console.log(value)
@@ -27,7 +28,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
   async ngOnInit() {
     await this._dispositivoService.getDispositivos()
       .then((dispositivos) => {
-        console.log(dispositivos)
+        this.listado = dispositivos as any[]; //console.log(dispositivos)
       })
       .catch((error) => {
         console.log(error)
