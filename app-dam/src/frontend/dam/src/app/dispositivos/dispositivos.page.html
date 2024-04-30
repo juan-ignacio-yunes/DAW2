@@ -16,7 +16,9 @@
     </ion-toolbar>
   </ion-header>
 
+  <!--div *ngIf="enable" -->
   <div *ngFor="let elemento of listado" appColorear>
-    <app-dispositivo [dispositivo]="elemento"></app-dispositivo>
- </div>
+    <app-dispositivo [dispositivo]="elemento.id"></app-dispositivo>
+  </div>
+  <!--/div-->
 </ion-content>
