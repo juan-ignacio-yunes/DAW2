@@ -15,4 +15,8 @@ export class DispositivoPage implements OnInit {
   ngOnInit() {
   }
 
+  handleItemClick() {
+    console.log('Item clicked');
+    // Aquí puedes agregar la lógica que quieras ejecutar cuando se haga clic en el elemento
+  }
 }
