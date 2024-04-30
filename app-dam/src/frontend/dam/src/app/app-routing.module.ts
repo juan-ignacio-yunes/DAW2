@@ -25,6 +25,22 @@ const routes: Routes = [
     path: 'dispositivo',
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
+  {
+    path: 'detalle-sensor',
+    loadChildren: () => import('./detalle-sensor/detalle-sensor.module').then( m => m.DetalleSensorPageModule)
+  },
+  {
+    path: 'sensor',
+    loadChildren: () => import('./sensor/sensor.module').then( m => m.SensorPageModule)
+  },
+  {
+    path: 'logs',
+    loadChildren: () => import('./logs/logs.module').then( m => m.LogsPageModule)
+  },
+  {
+    path: 'mediciones',
+    loadChildren: () => import('./mediciones/mediciones.module').then( m => m.MedicionesPageModule)
+  },
 
 ];
 
