@@ -36,6 +36,16 @@ export class DispositivosPage implements OnInit, OnDestroy {
     console.log('Me ejecuto primero')
   }
 
+  requestlistado () {
+    this._dispositivoService.getDispositivos()
+      .then((res) => {
+        console.log(res)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   ionViewWillEnter () {
     console.log(`Me llegó el id: ${Number(this._actRouter.snapshot.paramMap.get('id'))}`)
   }
