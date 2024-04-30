@@ -17,6 +17,6 @@
   </ion-header>
 
   <div *ngFor="let elemento of listado" appColorear>
-    elemento //[dispositivo]="elemento" (click)="handleItemClick(elemento)">
+    <app-dispositivo [dispositivo]="elemento"></app-dispositivo>
  </div>
 </ion-content>

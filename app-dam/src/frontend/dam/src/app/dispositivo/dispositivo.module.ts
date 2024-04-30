@@ -15,6 +15,7 @@ import { DispositivoPage } from './dispositivo.page';
     IonicModule,
     DispositivoPageRoutingModule
   ],
-  declarations: [DispositivoPage]
+  declarations: [DispositivoPage],
+  exports: [DispositivoPage]
 })
 export class DispositivoPageModule {}

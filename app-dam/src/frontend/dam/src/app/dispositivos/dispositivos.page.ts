@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription, fromEvent, interval, map } from 'rxjs';
 import { DispositivoService } from '../services/dispositivo.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-dispositivos',
@@ -15,7 +15,8 @@ export class DispositivosPage implements OnInit, OnDestroy {
   listado: any[] = [];
 
   constructor(private _dispositivoService: DispositivoService,
-    private _actRouter: ActivatedRoute) {
+    private _actRouter: ActivatedRoute,
+    private router: Router) {
     this.observable$ = interval(1000)
 
     //const valuePlusTen$ = this.observable$.pipe(map((val) => val+10))

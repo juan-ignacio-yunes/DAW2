@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DispositivosPageRoutingModule } from './dispositivos-routing.module';
 
 import { DispositivosPage } from './dispositivos.page';
+import { DispositivoPageModule } from '../dispositivo/dispositivo.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DispositivosPageRoutingModule
+    DispositivosPageRoutingModule,
+    DispositivoPageModule
   ],
   declarations: [DispositivosPage]
 })
