@@ -36,10 +36,12 @@ export class DispositivosPage implements OnInit, OnDestroy {
       })
     console.log('Me ejecuto primero')
   }
-  
-  handleItemClick() {
-    console.log('Item clicked');
-    // Aquí puedes agregar la lógica que quieras ejecutar cuando se haga clic en el elemento
+
+  handleItemClick(elemento: any) {
+    console.log("Item clicked");
+    this.router.navigate(['sensor'], {
+      state: { elemento }
+    });
   }
 
   requestlistado () {
