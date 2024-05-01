@@ -6,7 +6,7 @@
   <br>
   <button (click)="unsubscribe()">Unsub</button>
   <br-->
-  <ion-button (click)="requestlistado()">Listar Sensores</ion-button>
+  <!--ion-button (click)="requestlistado()">Listar Sensores</ion-button-->
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -16,11 +16,13 @@
     </ion-toolbar>
   </ion-header>
 
-  <!--div *ngIf="enable" -->
-  <div *ngFor="let elemento of listado" appColorear>
-    <app-dispositivo [dispositivo]="elemento" (click)="handleItemClick(elemento)"></app-dispositivo>
+  <ion-button fill="clear" (click)="enableOn()">Mostar lista</ion-button>
+  <ion-button fill="clear" (click)="disableOn()" *ngIf="enable">Ocultar lista</ion-button>
+  <div *ngIf="enable">
+    <div *ngFor="let elemento of listado" appColorear>
+      <app-dispositivo [dispositivo]="elemento" (click)="handleItemClick(elemento)"></app-dispositivo>
+    </div>
   </div>
-  <!--/div-->
 </ion-content>
 
 <!--ion-content [fullscreen]="true">

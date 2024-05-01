@@ -12,6 +12,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
 
   observable$: Observable<any>
   // subscription: Subscription
+  enable = false;
   listado: any[] = [];
 
   constructor(private _dispositivoService: DispositivoService,
@@ -50,7 +51,8 @@ export class DispositivosPage implements OnInit, OnDestroy {
     });
   }
 
-  requestlistado () {
+  enableOn () {
+    this.enable = true;
     this._dispositivoService.getDispositivos()
       .then((res) => {
         console.log(res)
@@ -58,6 +60,9 @@ export class DispositivosPage implements OnInit, OnDestroy {
       .catch((error) => {
         console.log(error)
       })
+  }
+  disableOn(){
+    this.enable = false;
   }
 
   ionViewWillEnter () {
