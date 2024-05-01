@@ -18,6 +18,6 @@ import { InterceptorService } from './services/interceptor.service';
     useClass: InterceptorService,
     multi: true
   }],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
