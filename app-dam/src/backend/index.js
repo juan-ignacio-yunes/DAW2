@@ -115,7 +115,7 @@ app.get('/mediciones/:id',function(req,res){
 });
 
 
-app.post('/mediciones/:id', function (req, res) {
+/*app.post('/mediciones/agregar', function (req, res) {
     console.log("se hizo POST a la api de mediciones para dispositivo ",id);
     //pool.query("SET time_zone = '-03:00'");
     const sqlQuery = 'INSERT INTO Mediciones (fecha, valor, dispositivoId) VALUES (?, ?, ?)';
@@ -130,9 +130,9 @@ app.post('/mediciones/:id', function (req, res) {
         res.send(result);
     });
 });
+*/
 
-
-app.get('/logs/:id',function(req,res){
+app.get('/log_riegos/:id',function(req,res){
     const id = req.params.id;
     console.log("se hizo GET a la api de logs para el dispositivo ",id);
     console.log(req.params);
@@ -145,7 +145,7 @@ app.get('/logs/:id',function(req,res){
     });
 });
 
-app.post('/logs/:id', function (req, res) {
+/*app.post('/log_riegos/agregar', function (req, res) {
     console.log("se hizo POST a la api de logs para el dispositivo ",id)
     //pool.query("SET time_zone = '-03:00'");
     const sqlQuery = 'INSERT INTO Log_Riegos (apertura, fecha, electrovalvulaId) VALUES (?, ?, ?)';
@@ -160,6 +160,7 @@ app.post('/logs/:id', function (req, res) {
         res.send(result);
     });
 });
+*/
 
 app.get('/prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})

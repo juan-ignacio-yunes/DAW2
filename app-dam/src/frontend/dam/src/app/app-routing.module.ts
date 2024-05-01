@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-  },  {
+  },
+  {
     path: 'dispositivo',
     loadChildren: () => import('./dispositivo/dispositivo.module').then( m => m.DispositivoPageModule)
   },
@@ -35,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'logs',
-    loadChildren: () => import('./logs/logs.module').then( m => m.LogsPageModule)
+    loadChildren: () => import('./log_riegos/logs.module').then( m => m.LogsPageModule)
   },
   {
     path: 'mediciones',
