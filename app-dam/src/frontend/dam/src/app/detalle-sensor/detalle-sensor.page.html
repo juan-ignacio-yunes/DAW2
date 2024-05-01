@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Ultima medicion</ion-title>
+    <ion-title>Última medición</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,14 +15,14 @@
     <ion-row>
       <ion-col>Dispositivo</ion-col>
       <ion-col>Fecha</ion-col>
-      <ion-col>Medicion</ion-col>
+      <ion-col>Medición</ion-col>
       <ion-col>Valor</ion-col>
     </ion-row>
     <ion-row *ngFor="let medicion of listado" appColorear> <!--/ion-row><ion-row *ngFor="let medicion of listado" appColorear-->
       <ion-col>{{ medicion.dispositivoId }}</ion-col>
       <ion-col>{{ medicion.fecha }}</ion-col>
       <ion-col>{{ medicion.medicionId }}</ion-col>
-      <ion-col>{{ medicion.valor }} kPa</ion-col>
+      <ion-col>{{ medicion.valor }} cbar</ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
