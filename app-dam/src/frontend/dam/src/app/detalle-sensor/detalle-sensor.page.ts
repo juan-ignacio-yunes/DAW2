@@ -36,18 +36,18 @@ export class DetalleSensorPage implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    setTimeout(()=>{
-      console.log("Cambio el valor del sensor");
-      this.valorObtenido=60;
-      //llamo al update del chart para refrescar y mostrar el nuevo valor
-      this.myChart.update({series: [{
-          name: 'kPA',
-          data: [this.valorObtenido],
-          tooltip: {
-              valueSuffix: ' kPA'
-          }
-      }]});
-    },6000);
+    this.generarChart();
+    //this.myChart = // inicializa tu gráfico aquí
+    console.log("Cambio el valor del sensor");
+    this.valorObtenido=60;
+    //llamo al update del chart para refrescar y mostrar el nuevo valor
+    this.myChart.update({series: [{
+      name: 'kPA',
+      data: [this.valorObtenido],
+      tooltip: {
+      valueSuffix: ' kPA'
+    }
+  }]});
   }
 
   ionViewDidEnter() {
@@ -126,5 +126,3 @@ export class DetalleSensorPage implements OnInit {
   }
 
 }
-
-*/
