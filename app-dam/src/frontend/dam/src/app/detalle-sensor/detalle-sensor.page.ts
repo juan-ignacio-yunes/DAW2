@@ -14,6 +14,7 @@ export class DetalleSensorPage implements OnInit {
 
 }
 
+
 /*
 //correr antes npm install --save highcharts
 import { Component, OnInit } from '@angular/core';
@@ -126,3 +127,4 @@ export class DetalleSensorPage implements OnInit {
   }
 
 }
+*/
