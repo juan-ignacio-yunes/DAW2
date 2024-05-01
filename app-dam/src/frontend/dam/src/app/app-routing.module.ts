@@ -41,7 +41,11 @@ const routes: Routes = [
   {
     path: 'mediciones',
     loadChildren: () => import('./mediciones/mediciones.module').then( m => m.MedicionesPageModule)
+  },  {
+    path: 'imagen-medidor',
+    loadChildren: () => import('./imagen-medidor/imagen-medidor.module').then( m => m.ImagenMedidorPageModule)
   },
+
 
 ];
 
