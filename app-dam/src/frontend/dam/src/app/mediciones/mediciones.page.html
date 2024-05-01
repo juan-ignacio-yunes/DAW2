@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>mediciones</ion-title>
+    <ion-title>Mediciones</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,4 +10,18 @@
       <ion-title size="large">mediciones</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>Dispositivo</ion-col>
+      <ion-col>Medicion</ion-col>
+      <ion-col>Fecha</ion-col>
+      <ion-col>Valor</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let medicion of listado" appColorear>
+      <ion-col>{{ medicion.dispositivoId }}</ion-col>
+      <ion-col>{{ medicion.medicionId }}</ion-col>
+      <ion-col>{{ medicion.fecha }}</ion-col>
+      <ion-col>{{ medicion.valor }}</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

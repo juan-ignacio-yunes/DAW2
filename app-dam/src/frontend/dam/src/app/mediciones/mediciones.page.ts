@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { GetMedicionService } from '../services/get-medicion.service';
+import { ActivatedRoute} from '@angular/router';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mediciones',
@@ -6,10 +10,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mediciones.page.scss'],
 })
 export class MedicionesPage implements OnInit {
+  
+  id: number = 0;
+  listado: any[] = [];
+  private unsubscribe$ = new Subject<void>();
 
-  constructor() { }
+  constructor(private _actRouter: ActivatedRoute, private medicionService: GetMedicionService) { }
 
   ngOnInit() {
+    this.id = Number(this._actRouter.snapshot.paramMap.get('id'));
+    this.medicionService.getMediciones(this.id)
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe((data: any[]) => {
+      this.listado = data;
+    });
   }
 
+  ngOnDestroy() {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 }
