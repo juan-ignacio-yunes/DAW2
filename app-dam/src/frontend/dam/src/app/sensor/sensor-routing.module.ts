@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SensorPage
+  },
+  {
+    path: ':id', // /mediciones/1
+    component: SensorPage
   }
 ];
 

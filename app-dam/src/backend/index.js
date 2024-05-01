@@ -114,6 +114,19 @@ app.get('/mediciones/:id',function(req,res){
     });
 });
 
+app.get('/ultimaMedicion/:id',function(req,res){
+    const id = req.params.id;
+    console.log("se hizo GET a la api de mediciones para el dispositivo ",id);
+    console.log(req.params);
+    pool.query('SELECT medicionId, fecha, valor, dispositivoId FROM Mediciones WHERE dispositivoId = ? ORDER BY fecha DESC, medicionId DESC LIMIT 1', [id], function(err, result, fields) {
+        if (err) {
+            res.send(err).status(400);
+            return;
+        }
+        res.send(result);
+    });
+});
+
 
 /*app.post('/mediciones/agregar', function (req, res) {
     console.log("se hizo POST a la api de mediciones para dispositivo ",id);

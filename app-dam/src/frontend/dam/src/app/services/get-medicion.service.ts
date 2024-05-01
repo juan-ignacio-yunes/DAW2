@@ -12,4 +12,8 @@ export class GetMedicionService {
   getMediciones(id: number): Observable<any[]> {
     return this.http.get<any[]>(`http://localhost:8000/mediciones/${id}`);
   }
+
+  getUltimaMedicion(id: number): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8000/ultimaMedicion/${id}`);
+  }
 }
