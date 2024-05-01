@@ -46,7 +46,7 @@ export class DispositivosPage implements OnInit, OnDestroy {
   }*/
   handleItemClick(elemento: any) {
     console.log("Item clicked");
-    this.router.navigate(['detalle-sensor',elemento.dispositivoId], {
+    this.router.navigate(['sensor',elemento.dispositivoId], {
       state: { elemento }
     });
   }
