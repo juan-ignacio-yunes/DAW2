@@ -11,7 +11,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <div><app-imagen-medidor></app-imagen-medidor></div>
+  <!--div><app-imagen-medidor></app-imagen-medidor></div-->
   <br>
   <ion-grid>
     <ion-row>
@@ -32,11 +32,11 @@
   <br>
   <ion-row class="ion-justify-content-center ion-align-items-center">
     <ion-col class="ion-text-center">
-      <ion-button>Ver mediciones</ion-button>
+      <ion-button (click)="irAMediciones()">Ver mediciones</ion-button>
       <br>
-      <ion-button>Ver logs</ion-button>
+      <ion-button (click)="irALog()">Ver log del sensor</ion-button>
       <br>
-      <ion-button>Abrir Electroválvula</ion-button>
+      <ion-button (click)="irAInicio()">Abrir Electroválvula</ion-button>
     </ion-col>
   </ion-row>
 

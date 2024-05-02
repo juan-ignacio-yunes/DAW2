@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetMedicionService } from '../services/get-medicion.service';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -15,7 +15,7 @@ export class MedicionesPage implements OnInit {
   listado: any[] = [];
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private _actRouter: ActivatedRoute, private medicionService: GetMedicionService) { }
+  constructor(private _actRouter: ActivatedRoute, private medicionService: GetMedicionService, private router: Router) { }
 
   ngOnInit() {
     this.id = Number(this._actRouter.snapshot.paramMap.get('id'));
@@ -29,5 +29,10 @@ export class MedicionesPage implements OnInit {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  irAInicio() {
+    console.log("vamos a Inicio");
+    this.router.navigate(['/home']);
   }
 }

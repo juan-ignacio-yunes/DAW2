@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Logs</ion-title>
+    <ion-title><ion-button (click)="irAInicio()">Ir a inicio</ion-button>  Logs</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,9 +14,9 @@
     <ion-grid>
       <ion-row>
         <ion-col>Valvula</ion-col>
+        <ion-col>Fecha</ion-col>
         <ion-col>Log N°</ion-col>
         <ion-col>Apertura</ion-col>
-        <ion-col>Fecha</ion-col>
       </ion-row>
       <ion-row *ngFor="let log of listado">
         <ion-col>{{ log.electrovalvulaId }}</ion-col>

@@ -29,6 +29,14 @@ export class DetalleSensorPage implements OnInit {
     this.medicionService.getUltimaMedicion(this.id)
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe((data: any[]) => {
+      console.log(data)
+
+      //genero número aleatorio entre 10 y 60
+      const nuevoValor = (Math.floor(Math.random() * 51) + 10).toString();
+
+      //reemplazo por uno nuevo aleatorio para simular una nueva medición 
+      data[0].valor = nuevoValor;
+      
       this.listado = data;
     });
   }
@@ -39,22 +47,18 @@ export class DetalleSensorPage implements OnInit {
   }
 
   irAInicio() {
+    console.log("vamos a Inicio");
     this.router.navigate(['/home']);
   }
 
-  Mediciones(elemento: any){
-    console.log("vamos a mediciones");
-    console.log(elemento)
-    this.router.navigate(['mediciones'],{
-      state:{elemento}//elemento
-    });
+  irAMediciones() {
+    console.log("vamos a Mediciones del sensor");
+    this.router.navigate(['mediciones',this.id]);
   }
 
-  Logs(elemento:any){
-    console.log("a logs");
-    this.router.navigate(['logs'],{
-      state:{elemento}//elemento
-    });
+  irALog() {
+    console.log("vamos a Mediciones del sensor");
+    this.router.navigate(['logs',this.id]);
   }
 
   Electrovalvula(elemento:any){
