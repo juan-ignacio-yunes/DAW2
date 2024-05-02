@@ -8,6 +8,7 @@ import { DetalleSensorPageRoutingModule } from './detalle-sensor-routing.module'
 
 import { DetalleSensorPage } from './detalle-sensor.page';
 import { EstadoSueloPipe } from '../pipes/estado-suelo.pipe';
+import { ImagenMedidorPageModule } from '../imagen-medidor/imagen-medidor.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { EstadoSueloPipe } from '../pipes/estado-suelo.pipe';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetalleSensorPageRoutingModule
+    DetalleSensorPageRoutingModule,
+    ImagenMedidorPageModule
   ],
   declarations: [DetalleSensorPage,EstadoSueloPipe],
   exports: [DetalleSensorPage]

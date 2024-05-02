@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: ImagenMedidorPage
+  },
+  {
+    path: ':id',
+    component: ImagenMedidorPage
   }
 ];
 

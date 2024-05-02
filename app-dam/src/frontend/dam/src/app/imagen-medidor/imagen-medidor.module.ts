@@ -15,6 +15,7 @@ import { ImagenMedidorPage } from './imagen-medidor.page';
     IonicModule,
     ImagenMedidorPageRoutingModule
   ],
-  declarations: [ImagenMedidorPage]
+  declarations: [ImagenMedidorPage],
+  exports: [ImagenMedidorPage]
 })
 export class ImagenMedidorPageModule {}
