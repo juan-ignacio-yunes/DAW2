@@ -128,11 +128,11 @@ app.get('/ultimaMedicion/:id',function(req,res){
 });
 
 
-/*app.post('/mediciones/agregar', function (req, res) {
+app.post('/mediciones/agregar', function (req, res) {
+    const id = req.body.dispositivoId;
     console.log("se hizo POST a la api de mediciones para dispositivo ",id);
-    //pool.query("SET time_zone = '-03:00'");
-    const sqlQuery = 'INSERT INTO Mediciones (fecha, valor, dispositivoId) VALUES (?, ?, ?)';
-    const values = [req.body.fecha, req.body.valor, req.body.dispositivoId];
+    const sqlQuery = 'INSERT INTO Mediciones (medicionId, fecha, valor, dispositivoId) VALUES (?, ?, ?,?)';
+    const values = [req.body.medicionId,req.body.fecha, req.body.valor, req.body.dispositivoId];
 
     pool.query(sqlQuery, values, function (err, result, fields) {
         if (err) {
@@ -143,7 +143,7 @@ app.get('/ultimaMedicion/:id',function(req,res){
         res.send(result);
     });
 });
-*/
+
 
 app.get('/log_riegos/:id',function(req,res){
     const id = req.params.id;
@@ -158,11 +158,11 @@ app.get('/log_riegos/:id',function(req,res){
     });
 });
 
-/*app.post('/log_riegos/agregar', function (req, res) {
+app.post('/log_riegos/agregar', function (req, res) {
+    const id = req.body.electrovalvulaId;
     console.log("se hizo POST a la api de logs para el dispositivo ",id)
-    //pool.query("SET time_zone = '-03:00'");
-    const sqlQuery = 'INSERT INTO Log_Riegos (apertura, fecha, electrovalvulaId) VALUES (?, ?, ?)';
-    const values = [req.body.apertura, req.body.fecha, req.body.electrovalvulaId];
+    const sqlQuery = 'INSERT INTO Log_Riegos (logRiegoId, apertura, fecha, electrovalvulaId) VALUES (?, ?, ?, ?)';
+    const values = [req.body.logRiegoId,req.body.apertura, req.body.fecha, req.body.electrovalvulaId];
 
     pool.query(sqlQuery, values, function (err, result, fields) {
         if (err) {
@@ -173,7 +173,7 @@ app.get('/log_riegos/:id',function(req,res){
         res.send(result);
     });
 });
-*/
+
 
 app.get('/prueba', authenticator, function(req, res) {
     res.send({message: 'Está autenticado, accede a los datos'})
